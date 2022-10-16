@@ -7,8 +7,8 @@ import (
 
 type Book struct {
 	gorm.Model
-	ID              int
-	IDX             string
+	ID              int    `gorm:"index"`
+	IDX             string `gorm:"index:id_x,unique"`
 	Title           string
 	Writer          string
 	Publisher       string

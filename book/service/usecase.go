@@ -14,7 +14,7 @@ type bookService struct {
 
 // UpdateData implements domain.Service
 func (bs bookService) UpdateData(id string, domain domain.Book) (bookObj domain.Book, err error) {
-	if bookObj, err = bs.GetByID(id); err != nil {
+	if bookObj, err = bs.GetByIDx(id); err != nil {
 		return bookObj, err
 	}
 
@@ -29,8 +29,17 @@ func (bs bookService) UpdateData(id string, domain domain.Book) (bookObj domain.
 	return bookObj, nil
 }
 
+// GetByIDx implements domain.Service
+func (bs bookService) GetByIDx(id string) (bookObj domain.Book, err error) {
+	if bookObj, err = bs.repository.GetByIDx(id); err != nil {
+		return bookObj, err
+	}
+
+	return bookObj, nil
+}
+
 // GetByID implements domain.Service
-func (bs bookService) GetByID(id string) (bookObj domain.Book, err error) {
+func (bs bookService) GetByID(id int) (bookObj domain.Book, err error) {
 	if bookObj, err = bs.repository.GetByID(id); err != nil {
 		return bookObj, err
 	}
