@@ -29,12 +29,12 @@ func New() *echo.Echo {
 	v1.POST("/login", user.Login)
 
 	userG := v1.Group("/user")
-	userG.Use(middleware.JWT([]byte(os.Getenv("JWT_SECRET"))), middlewares.UserValidation(user))
+	userG.Use(middleware.JWT([]byte(os.Getenv("JWT_SECRET"))))
 	userG.GET("", user.GetAll)
 	userG.GET("/:id", user.GetByID)
 	userG.PATCH("/change-password/:id", user.ChangePassword)
-	userG.PUT("/:id", user.Update)
-	userG.DELETE("/:id", user.Delete)
+	userG.PUT("/:id", user.Update, middlewares.UserValidation(user))
+	userG.DELETE("/:id", user.Delete, middlewares.UserValidation(user))
 
 	return e
 }
