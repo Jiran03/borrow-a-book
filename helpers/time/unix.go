@@ -15,3 +15,9 @@ func Timestamp() string {
 	time := strconv.Itoa(int(time.Now().UnixNano() / 1000000))
 	return time
 }
+
+func DayToNano(days int) string {
+	days *= 86400000
+	time := strconv.Itoa(int(time.Now().UnixNano()/1000000) + days)
+	return time
+}

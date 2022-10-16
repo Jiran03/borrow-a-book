@@ -5,6 +5,7 @@ import (
 	"os"
 
 	bookRepo "github.com/Jiran03/borrow-a-book/book/repository/mysql"
+	borrowRepo "github.com/Jiran03/borrow-a-book/borrow/repository/mysql"
 	userRepo "github.com/Jiran03/borrow-a-book/user/repository/mysql"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -31,7 +32,6 @@ func Init() {
 }
 
 func DBInit() (DB *gorm.DB) {
-
 	//mysql
 	DB, _ = gorm.Open(
 		mysql.Open(
@@ -53,5 +53,6 @@ func DBMigrate(DB *gorm.DB) {
 	DB.AutoMigrate(
 		&userRepo.User{},
 		&bookRepo.Book{},
+		&borrowRepo.Borrow{},
 	)
 }

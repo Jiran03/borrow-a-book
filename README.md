@@ -16,6 +16,8 @@ Gambaran umum struktur direktori dan file:
 ├── go.sum
 ├── .env
 ├── main.go
+├───config
+├───routes
 ├───auth
 │   └───middlewares
 ├───book
@@ -25,12 +27,17 @@ Gambaran umum struktur direktori dan file:
 │   ├───repository
 │   │   └───mysql
 │   └───service
-├───config
+├───borrow
+│   ├───domain
+│   ├───handler
+│   │   └───api
+│   ├───repository
+│   │   └───mysql
+│   └───service
 ├───helpers
 │   ├───encrypt
 │   ├───error
 │   └───time
-├───routes
 └───user
     ├───domain
     ├───handler

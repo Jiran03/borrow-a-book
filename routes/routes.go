@@ -6,6 +6,7 @@ import (
 
 	"github.com/Jiran03/borrow-a-book/auth/middlewares"
 	"github.com/Jiran03/borrow-a-book/book"
+	"github.com/Jiran03/borrow-a-book/borrow"
 	"github.com/Jiran03/borrow-a-book/config"
 	"github.com/Jiran03/borrow-a-book/user"
 	"github.com/labstack/echo/v4"
@@ -24,6 +25,7 @@ func New() *echo.Echo {
 
 	user := user.NewUserFactory(db, configJWT)
 	book := book.NewBookFactory(db, configJWT)
+	borrow := borrow.NewBorrowFactory(db, configJWT)
 	e := echo.New()
 	middlewares.LogMiddleware(e)
 	v1 := e.Group("/v1")
@@ -45,6 +47,14 @@ func New() *echo.Echo {
 	bookG.GET("/:id", book.GetByID)
 	bookG.PUT("/:id", book.Update)
 	bookG.DELETE("/:id", book.Delete)
+
+	borrowG := v1.Group("/borrow")
+	borrowG.Use(middleware.JWT([]byte(os.Getenv("JWT_SECRET"))))
+	borrowG.POST("", borrow.Create)
+	borrowG.GET("", borrow.GetAll)
+	borrowG.GET("/:id", borrow.GetByID)
+	borrowG.PUT("/:id", borrow.Update)
+	borrowG.DELETE("/:id", borrow.Delete)
 
 	return e
 }
