@@ -1,7 +1,7 @@
 
 # Borrow a Book
 
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/Jiran03/borrow-a-book/feature/user)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/Jiran03/borrow-a-book)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Jiran03/borrow-a-book)
 
 
