@@ -2,7 +2,6 @@ package handlerAPI
 
 import (
 	"net/http"
-	"strconv"
 
 	errHelper "github.com/Jiran03/borrow-a-book/helpers/error"
 	"github.com/Jiran03/borrow-a-book/user/domain"
@@ -163,7 +162,7 @@ func (uh UserHandler) GetByEmail(ctx echo.Context) error {
 }
 
 func (uh UserHandler) Delete(ctx echo.Context) error {
-	id, _ := strconv.Atoi(ctx.Param("id"))
+	id := ctx.Param("id")
 	err := uh.service.DeleteData(id)
 	if err != nil {
 		errCode, errMessage := errHelper.ErrorMessage(err.Error())
