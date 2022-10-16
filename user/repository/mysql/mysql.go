@@ -82,9 +82,9 @@ func (ur userRepository) Create(domain domain.User) (userObj domain.User, err er
 }
 
 // Delete implements domain.Repository
-func (ur userRepository) Delete(id int) (err error) {
+func (ur userRepository) Delete(id string) (err error) {
 	var record User
-	err = ur.DB.Delete(&record, id).Error
+	err = ur.DB.Where("id_x = ?", id).Delete(&record).Error
 	if err != nil {
 		return err
 	}
