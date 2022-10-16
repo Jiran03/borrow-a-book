@@ -18,6 +18,13 @@ Gambaran umum struktur direktori dan file:
 ├── main.go
 ├───auth
 │   └───middlewares
+├───book
+│   ├───domain
+│   ├───handler
+│   │   └───api
+│   ├───repository
+│   │   └───mysql
+│   └───service
 ├───config
 ├───helpers
 │   ├───encrypt
