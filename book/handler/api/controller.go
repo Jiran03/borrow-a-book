@@ -73,7 +73,7 @@ func (bh BookHandler) GetAll(ctx echo.Context) error {
 
 func (bh BookHandler) GetByID(ctx echo.Context) error {
 	id := ctx.Param("id")
-	bookRes, err := bh.service.GetByID(id)
+	bookRes, err := bh.service.GetByIDx(id)
 	if err != nil {
 		errCode, errMessage := errHelper.ErrorMessage(err.Error())
 		return ctx.JSON(errCode, map[string]interface{}{
