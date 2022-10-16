@@ -31,7 +31,18 @@ func (ur bookRepository) Update(domain domain.Book) (bookObj domain.Book, err er
 }
 
 // GetByID implements domain.Repository
-func (ur bookRepository) GetByID(id string) (domain domain.Book, err error) {
+func (ur bookRepository) GetByID(id int) (domain domain.Book, err error) {
+	var record Book
+	err = ur.DB.First(&record, id).Error
+	if err != nil {
+		return domain, err
+	}
+
+	return toDomain(record), nil
+}
+
+// GetByIDx implements domain.Repository
+func (ur bookRepository) GetByIDx(id string) (domain domain.Book, err error) {
 	var record Book
 	err = ur.DB.Where("id_x = ?", id).First(&record).Error
 	if err != nil {

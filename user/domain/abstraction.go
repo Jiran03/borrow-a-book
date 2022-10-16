@@ -7,7 +7,7 @@ type Service interface {
 	GetAllData() (userObj []User, err error)
 	GetByID(id string) (userObj User, err error)
 	GetByEmail(email string) (userObj User, err error)
-	DeleteData(id int) (err error)
+	DeleteData(id string) (err error)
 	ChangePassword(id string, domain User) (userObj User, err error)
 }
 
@@ -17,5 +17,5 @@ type Repository interface {
 	Get() (userObj []User, err error)
 	GetByID(id string) (domain User, err error)
 	GetByEmail(email string) (userObj User, err error)
-	Delete(id int) (err error)
+	Delete(id string) (err error)
 }

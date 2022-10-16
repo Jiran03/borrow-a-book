@@ -123,7 +123,7 @@ func (us userService) GetAllData() (userObj []domain.User, err error) {
 }
 
 // DeleteData implements domain.Service
-func (us userService) DeleteData(id int) (err error) {
+func (us userService) DeleteData(id string) (err error) {
 	if errResp := us.repository.Delete(id); errResp != nil {
 		return errResp
 	}
