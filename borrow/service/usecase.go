@@ -42,6 +42,20 @@ func (bs borrowService) GetByID(id string) (borrowObj domain.Borrow, err error) 
 }
 
 func (bs borrowService) InsertData(domain domain.Borrow) (borrowObj domain.Borrow, err error) {
+	bookObj, err := bs.bookService.GetByID(domain.BookID)
+	if err != nil {
+		return borrowObj, err
+	}
+
+	if bookObj.BookQty < domain.Qty {
+		return borrowObj, err
+	}
+
+	bookObj.BookQty -= domain.Qty
+	if _, err = bs.bookService.UpdateData(bookObj.IDX, bookObj); err != nil {
+		return borrowObj, err
+	}
+
 	domain.IDX = uuid.New().String()
 	domain.DeadlineAt = timeHelper.DayToNano(domain.Duration)
 	domain.CreatedAt = timeHelper.Timestamp()

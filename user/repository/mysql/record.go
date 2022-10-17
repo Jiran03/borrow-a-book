@@ -1,6 +1,7 @@
 package repoMySQL
 
 import (
+	repoMySQLB "github.com/Jiran03/borrow-a-book/borrow/domain"
 	"github.com/Jiran03/borrow-a-book/user/domain"
 	"gorm.io/gorm"
 )
@@ -15,6 +16,7 @@ type User struct {
 	Password  string
 	CreatedAt string
 	UpdatedAt string
+	Borrows   []repoMySQLB.Borrow `gorm:"foreignKey:UserID"`
 }
 
 func toDomain(rec User) domain.User {

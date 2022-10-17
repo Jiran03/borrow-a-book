@@ -47,6 +47,12 @@ Gambaran umum struktur direktori dan file:
     └───service
 ```
 
+### Software architecture & pattern
+Aplikasi ini dibangun dan didesain menggunakan desain Clean Architecture dengan struktur folder seperti di atas. Clean architecture digunakan agar tiap layernya dapat berdiri sendiri sehingga tidak ada yang akan bentrok ketika ada perubahan code pada layer tententu. Struktur folder saya kelompokkan berdasarkan entitas agar mudah dalam memanajemen code serta melakukan testing. 
+
+Agar tiap layer dapat berkomunikasi, saya menggunakan factory pattern. Pattern ini saya gunakan agar dapat menghindari pengaksesan kode secara langsung yang mungkin dapat membahayakan sistem.    
+
+
 ## .env file
 Struktur env file:
 ```
