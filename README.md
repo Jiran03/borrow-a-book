@@ -155,4 +155,4 @@ Sesuaikan value-nya dengan database yang sudah Anda buat.
 ## Run & Testing app
 
 
-Gunakan perintah  `go run main.go` untuk menjalankan aplikasi. Untuk melakukan testing silakan gunakan postman kemudian import file berikut: [e2e test file]("github.com/Jiran03/borrow-a-book/BorrowABook.postman_collection.json")
+Gunakan perintah  `go run main.go` untuk menjalankan aplikasi. Untuk melakukan testing silakan gunakan postman kemudian import file berikut: [e2e test file](BorrowABook.postman_collection.json)
