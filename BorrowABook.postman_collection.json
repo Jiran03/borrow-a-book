@@ -1,0 +1,1217 @@
+{
+	"info": {
+		"_postman_id": "71c68a23-f3c2-4135-a352-47f3bcba135b",
+		"name": "BorrowABook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "13612804"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jiran Muhammad\",\r\n    \"email\": \"jiran1@mail.com\",\r\n    \"password\": \"jiran123\",\r\n    \"gender\": \"L\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/register"
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Jiran Muhammad\",\r\n    \"email\": \"jiran1@mail.com\",\r\n    \"password\": \"jiran123\",\r\n    \"gender\": \"L\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/register"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 08:19:44 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jiran1@mail.com\",\r\n    \"password\": \"jiran123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/login"
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"jiran1@mail.com\",\r\n    \"password\": \"jiran123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 08:19:49 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "484"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"idx\": \"e0783de6-b6d9-4023-bd7c-903b9b023a92\",\n        \"name\": \"Jiran Muhammad\",\n        \"email\": \"jiran1@mail.com\",\n        \"gender\": \"L\",\n        \"created_at\": \"2022-10-16T16:19:44.857+08:00\",\n        \"updated_at\": \"2022-10-16T16:19:44.857+08:00\"\n    },\n    \"message\": \"success\",\n    \"rescode\": 200,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwNzgzZGU2LWI2ZDktNDAyMy1iZDdjLTkwM2I5YjAyM2E5MiIsImVtYWlsIjoiamlyYW4xQG1haWwuY29tIiwiYXV0aG9yaXplZCI6dHJ1ZSwiZXhwIjoxNjY1OTExOTg5fQ.YZ7CsfMPmQ3VeV32x0L5bJtTG4raGF8ykVtFHSxmyys\"\n}"
+						}
+					]
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"jiran123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/change-password/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"change-password",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "362e0798-1a29-484c-889c-f89566420ca5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "change-password",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"jiran123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user/change-password/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"change-password",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "362e0798-1a29-484c-889c-f89566420ca5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 16:43:13 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "254"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"idx\": \"362e0798-1a29-484c-889c-f89566420ca5\",\n        \"name\": \"Jiran Muhammad ges\",\n        \"email\": \"jiran1@mail.com\",\n        \"gender\": \"L\",\n        \"created_at\": \"2022-10-17T00:40:25.666+08:00\",\n        \"updated_at\": \"2022-10-17T00:43:13.629+08:00\"\n    },\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/user"
+					},
+					"response": [
+						{
+							"name": "get-all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/user"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 08:22:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "252"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"idx\": \"e0783de6-b6d9-4023-bd7c-903b9b023a92\",\n            \"name\": \"Jiran Muhammad\",\n            \"email\": \"jiran1@mail.com\",\n            \"gender\": \"L\",\n            \"created_at\": \"2022-10-16T16:19:44.857+08:00\",\n            \"updated_at\": \"2022-10-16T16:19:44.857+08:00\"\n        }\n    ],\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get-by-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "362e0798-1a29-484c-889c-f89566420ca5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-by-id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "362e0798-1a29-484c-889c-f89566420ca5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 16:42:05 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"idx\": \"362e0798-1a29-484c-889c-f89566420ca5\",\n        \"name\": \"Jiran Muhammad\",\n        \"email\": \"jiran1@mail.com\",\n        \"gender\": \"L\",\n        \"created_at\": \"2022-10-17T00:40:25.666+08:00\",\n        \"updated_at\": \"2022-10-17T00:40:25.666+08:00\"\n    },\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jiran Muhammad ges\",\r\n    \"email\": \"jiran1@mail.com\",\r\n    \"password\": \"jiran123\",\r\n    \"gender\": \"L\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "362e0798-1a29-484c-889c-f89566420ca5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Jiran Muhammad ges\",\r\n    \"email\": \"jiran1@mail.com\",\r\n    \"password\": \"jiran123\",\r\n    \"gender\": \"L\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "362e0798-1a29-484c-889c-f89566420ca5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 16:42:35 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "254"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"idx\": \"362e0798-1a29-484c-889c-f89566420ca5\",\n        \"name\": \"Jiran Muhammad ges\",\n        \"email\": \"jiran1@mail.com\",\n        \"gender\": \"L\",\n        \"created_at\": \"2022-10-17T00:40:25.666+08:00\",\n        \"updated_at\": \"2022-10-17T00:42:35.286+08:00\"\n    },\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "362e0798-1a29-484c-889c-f89566420ca5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "362e0798-1a29-484c-889c-f89566420ca5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 16:43:27 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Judul Buku\",\r\n    \"writer\": \"Jiran Muhammad\",\r\n    \"publisher\": \"Aneka Buku\",\r\n    \"publication_year\": 2022,\r\n    \"book_qty\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/book"
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Judul Buku\",\r\n    \"writer\": \"Jiran Muhammad\",\r\n    \"publisher\": \"Aneka Buku\",\r\n    \"publication_year\": 2022,\r\n    \"book_qty\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/book"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 12:18:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/book"
+					},
+					"response": [
+						{
+							"name": "get-all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/book"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 12:18:49 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "299"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"idx\": \"adb519da-1d9b-4d72-be3a-558a7a050d56\",\n            \"title\": \"Judul Buku\",\n            \"writer\": \"Jiran Muhammad\",\n            \"publisher\": \"Aneka Buku\",\n            \"publication_year\": 2022,\n            \"book_qty\": 10,\n            \"created_at\": \"2022-10-16T20:18:45.899+08:00\",\n            \"updated_at\": \"2022-10-16T20:18:45.899+08:00\"\n        }\n    ],\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get-by-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/book/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"book",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "adb519da-1d9b-4d72-be3a-558a7a050d56"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-by-id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/book/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"book",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "adb519da-1d9b-4d72-be3a-558a7a050d56"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 12:19:17 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "297"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"idx\": \"adb519da-1d9b-4d72-be3a-558a7a050d56\",\n        \"title\": \"Judul Buku\",\n        \"writer\": \"Jiran Muhammad\",\n        \"publisher\": \"Aneka Buku\",\n        \"publication_year\": 2022,\n        \"book_qty\": 10,\n        \"created_at\": \"2022-10-16T20:18:45.899+08:00\",\n        \"updated_at\": \"2022-10-16T20:18:45.899+08:00\"\n    },\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Bismillah Nikah\",\r\n    \"writer\": \"Jiran Muhammad\",\r\n    \"publisher\": \"Aneka Buku\",\r\n    \"publication_year\": 2022,\r\n    \"book_qty\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/book/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"book",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "adb519da-1d9b-4d72-be3a-558a7a050d56"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Bismillah Nikah\",\r\n    \"writer\": \"Jiran Muhammad\",\r\n    \"publisher\": \"Aneka Buku\",\r\n    \"publication_year\": 2022,\r\n    \"book_qty\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/book/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"book",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "adb519da-1d9b-4d72-be3a-558a7a050d56"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 12:20:38 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "302"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"idx\": \"adb519da-1d9b-4d72-be3a-558a7a050d56\",\n        \"title\": \"Bismillah Nikah\",\n        \"writer\": \"Jiran Muhammad\",\n        \"publisher\": \"Aneka Buku\",\n        \"publication_year\": 2022,\n        \"book_qty\": 10,\n        \"created_at\": \"2022-10-16T20:18:45.899+08:00\",\n        \"updated_at\": \"2022-10-16T20:20:38.748+08:00\"\n    },\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/book/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"book",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "adb519da-1d9b-4d72-be3a-558a7a050d56"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/book/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"book",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "adb519da-1d9b-4d72-be3a-558a7a050d56"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 12:21:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Borrow",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 1,\r\n    \"book_id\": 1,\r\n    \"qty\": 2,\r\n    \"duration\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/borrow"
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\": 1,\r\n    \"book_id\": 1,\r\n    \"qty\": 2,\r\n    \"duration\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/borrow"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 16:41:00 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/borrow"
+					},
+					"response": [
+						{
+							"name": "get-all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/borrow"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 16:44:05 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "489"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"idx\": \"ace851a5-902f-4054-9c37-b89dd3473fad\",\n            \"user_id\": 1,\n            \"book_id\": 1,\n            \"qty\": 2,\n            \"deadline_at\": \"2022-10-26T22:11:43.775+08:00\",\n            \"created_at\": \"2022-10-16T22:11:43.775+08:00\",\n            \"updated_at\": \"2022-10-16T22:11:43.775+08:00\"\n        },\n        {\n            \"id\": 2,\n            \"idx\": \"4fbcd280-f622-4524-b72f-2c2aa93ffb52\",\n            \"user_id\": 1,\n            \"book_id\": 1,\n            \"qty\": 2,\n            \"deadline_at\": \"2022-10-27T00:41:00.485+08:00\",\n            \"created_at\": \"2022-10-17T00:41:00.485+08:00\",\n            \"updated_at\": \"2022-10-17T00:41:00.485+08:00\"\n        }\n    ],\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						},
+						{
+							"name": "get-all-with-cache",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/borrow"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Oct 2022 09:41:15 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "489"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"idx\": \"ace851a5-902f-4054-9c37-b89dd3473fad\",\n            \"user_id\": 1,\n            \"book_id\": 1,\n            \"qty\": 2,\n            \"deadline_at\": \"2022-10-26T22:11:43.775+08:00\",\n            \"created_at\": \"2022-10-16T22:11:43.775+08:00\",\n            \"updated_at\": \"2022-10-16T22:11:43.775+08:00\"\n        },\n        {\n            \"id\": 3,\n            \"idx\": \"cfe1db47-0f15-4508-9eb1-23bfb1888465\",\n            \"user_id\": 1,\n            \"book_id\": 1,\n            \"qty\": 2,\n            \"deadline_at\": \"2022-10-27T08:04:56.365+08:00\",\n            \"created_at\": \"2022-10-17T08:04:56.365+08:00\",\n            \"updated_at\": \"2022-10-17T08:04:56.365+08:00\"\n        }\n    ],\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get-by-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/borrow/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"borrow",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4fbcd280-f622-4524-b72f-2c2aa93ffb52"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-by-id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/borrow/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"borrow",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4fbcd280-f622-4524-b72f-2c2aa93ffb52"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 16:45:31 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "265"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"idx\": \"4fbcd280-f622-4524-b72f-2c2aa93ffb52\",\n        \"user_id\": 1,\n        \"book_id\": 1,\n        \"qty\": 2,\n        \"deadline_at\": \"2022-10-27T00:41:00.485+08:00\",\n        \"created_at\": \"2022-10-17T00:41:00.485+08:00\",\n        \"updated_at\": \"2022-10-17T00:41:00.485+08:00\"\n    },\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 1,\r\n    \"book_id\": 1,\r\n    \"qty\": 4,\r\n    \"duration\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/borrow/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"borrow",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4fbcd280-f622-4524-b72f-2c2aa93ffb52"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\": 1,\r\n    \"book_id\": 1,\r\n    \"qty\": 4,\r\n    \"duration\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/borrow/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"borrow",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4fbcd280-f622-4524-b72f-2c2aa93ffb52"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 16:46:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "265"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"idx\": \"4fbcd280-f622-4524-b72f-2c2aa93ffb52\",\n        \"user_id\": 1,\n        \"book_id\": 1,\n        \"qty\": 4,\n        \"deadline_at\": \"2022-10-27T00:41:00.485+08:00\",\n        \"created_at\": \"2022-10-17T00:41:00.485+08:00\",\n        \"updated_at\": \"2022-10-17T00:46:45.348+08:00\"\n    },\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/borrow/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"borrow",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4fbcd280-f622-4524-b72f-2c2aa93ffb52"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/borrow/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"borrow",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4fbcd280-f622-4524-b72f-2c2aa93ffb52"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Oct 2022 16:49:36 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"rescode\": 200\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
