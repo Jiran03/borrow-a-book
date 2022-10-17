@@ -2,6 +2,7 @@ package repoMySQL
 
 import (
 	"github.com/Jiran03/borrow-a-book/book/domain"
+	repoMySQLB "github.com/Jiran03/borrow-a-book/borrow/domain"
 	"gorm.io/gorm"
 )
 
@@ -16,6 +17,7 @@ type Book struct {
 	BookQty         int
 	CreatedAt       string
 	UpdatedAt       string
+	Borrows         []repoMySQLB.Borrow `gorm:"foreignKey:BookID"`
 }
 
 func toDomain(rec Book) domain.Book {

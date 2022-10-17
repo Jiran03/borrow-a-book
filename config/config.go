@@ -2,10 +2,13 @@ package config
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	bookRepo "github.com/Jiran03/borrow-a-book/book/repository/mysql"
+	borrowRepo "github.com/Jiran03/borrow-a-book/borrow/repository/mysql"
 	userRepo "github.com/Jiran03/borrow-a-book/user/repository/mysql"
+	"github.com/gomodule/redigo/redis"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -18,7 +21,13 @@ type Config struct {
 	DBPORT string
 }
 
+type RedistConfig struct {
+	REDIHOST string
+	REDIPORT string
+}
+
 var Conf Config
+var RediConf RedistConfig
 
 func Init() {
 	Conf = Config{
@@ -28,10 +37,20 @@ func Init() {
 		DBHOST: os.Getenv("DB_HOST"),
 		DBPORT: os.Getenv("DB_PORT"),
 	}
+
+	RediConf = RedistConfig{
+		REDIHOST: os.Getenv("REDIHOST"),
+		REDIPORT: os.Getenv("REDIPORT"),
+	}
+}
+
+func checkError(err error) {
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func DBInit() (DB *gorm.DB) {
-
 	//mysql
 	DB, _ = gorm.Open(
 		mysql.Open(
@@ -49,9 +68,24 @@ func DBInit() (DB *gorm.DB) {
 
 }
 
+func NewPool() *redis.Pool {
+	return &redis.Pool{
+		MaxIdle:   80,
+		MaxActive: 12000,
+		Dial: func() (redis.Conn, error) {
+			//redis
+			rediAdd := fmt.Sprintf("%s:%s", RediConf.REDIHOST, RediConf.REDIPORT)
+			c, err := redis.Dial("tcp", rediAdd)
+			checkError(err)
+			return c, err
+		},
+	}
+}
+
 func DBMigrate(DB *gorm.DB) {
 	DB.AutoMigrate(
 		&userRepo.User{},
 		&bookRepo.Book{},
+		&borrowRepo.Borrow{},
 	)
 }
