@@ -16,6 +16,7 @@ import (
 func New() *echo.Echo {
 	config.Init()
 	db := config.DBInit()
+	pool := config.NewPool()
 	config.DBMigrate(db)
 	expDuration, _ := strconv.Atoi(os.Getenv("JWT_EXPIRED"))
 	configJWT := middlewares.ConfigJWT{
@@ -25,7 +26,7 @@ func New() *echo.Echo {
 
 	user := user.NewUserFactory(db, configJWT)
 	book := book.NewBookFactory(db, configJWT)
-	borrow := borrow.NewBorrowFactory(db, configJWT)
+	borrow := borrow.NewBorrowFactory(db, pool, configJWT)
 	e := echo.New()
 	middlewares.LogMiddleware(e)
 	v1 := e.Group("/v1")
